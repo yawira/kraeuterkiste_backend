@@ -16,7 +16,7 @@ public class LoginController {
 
     private final LoginService loginService;
 
-    @Autowired
+    @Autowired // @Lazy ist eingefügt um circular dependencies aufzulösen
     public LoginController(@Lazy LoginService loginService) {
         this.loginService = loginService;
     }

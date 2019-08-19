@@ -34,6 +34,4 @@ public class LoginService implements UserDetailsService {
         UserDetails user = new User(userEntity.getUsername(), userEntity.getPassword(), new ArrayList<>());
         return user;
     }
-
-
 }
