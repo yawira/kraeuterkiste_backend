@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+@import "themes.css";
+
+html,body{
+    /*background-image: url('../images/background.png'); */
+    background-repeat: repeat;
+    height: auto;
+    font-family: 'Numans', sans-serif;
+}
+
+body {
+    align-content: center;
+}

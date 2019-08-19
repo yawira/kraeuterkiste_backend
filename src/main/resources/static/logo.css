@@ -1,0 +1,27 @@
+@import url("themes.css");
+
+.logo-elem{
+    font-size: 30px;
+    letter-spacing: -0.2em;
+}
+
+#logo-pt-1{
+    color: var(--main-color);
+}
+
+#logo-pt-2{
+    color: var(--tertray-color);
+    margin-right: 10px;
+}
+
+#logo-pt-3{
+    color: var(--secondary-color);
+    /*position: relative;
+    right: 10px;
+    top: 17px;
+    font-size: 60px;*/
+}
+
+.logo-elem:hover{
+    cursor: default;
+}

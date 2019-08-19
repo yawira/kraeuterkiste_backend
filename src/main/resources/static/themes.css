@@ -1,0 +1,13 @@
+:root{
+    --main-color: #6863ff;
+    --secondary-color: #6863ff;
+    --tertray-color: #8a87e6;
+    --panel-color: rgba(225, 225, 225, 0.7);
+    --nav-bar-width: 40px;
+    --nav-background: #e4e4e4;
+    --campaign-selected: lightblue;
+}
+
+.main-content-padding{
+    padding-top: var(--nav-bar-width);
+}

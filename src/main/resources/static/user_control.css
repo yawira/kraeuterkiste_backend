@@ -1,0 +1,84 @@
+.card{
+    height: 270px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 350px;
+    background-color: rgba(0,0,0,0.1) !important;
+}
+
+.card-height{
+    height:300px !important;
+}
+
+.btn-info{
+    color: white;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+.btn-registration{
+    width:150px !important;
+}
+
+.btn-registration-secondpage{
+    width: 120px !important;
+}
+
+.btn-info:hover{
+    color: white;
+    background-color: white;
+}
+
+.whiteh3 {
+    color: white;
+}
+
+
+.links{
+    color: var(--main-color);
+}
+
+.links a{
+    margin-left: 4px;
+}
+
+.input-group-prepend span{
+    width: 50px;
+    background-color: var(--main-color);
+    color: white;
+    border:0 !important;
+}
+
+.h3 {
+    color: var(--main-color);
+}
+
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+input:focus{
+    box-shadow: 0 0 0 0 !important;
+}
+
+.remember{
+    color: white;
+}
+
+.remember input
+{
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.btn-user-control{
+    background-color: var(--main-color);
+    color: white;
+}
+
+.btn-user-control:hover{
+    color: var(--tertray-color);
+}

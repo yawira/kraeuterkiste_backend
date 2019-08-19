@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{../fragments/header}">
+</head>
+<body>
+<div class="container">
+    <div class="d-flex justify-content-center h-100" style="margin-top: 20px;">
+        <div class="card card-height">
+            <div th:if="${error != ''}">
+                <div class="alert alert-danger" role="alert"  style="position: absolute;">
+                    <span th:text="${error}"></span>
+                </div>
+            </div>
+            <div class="card-header">
+                <main th:insert="~{../fragments/logo}"></main>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/registrierungAbschliessen}"
+                      th:object="${neuerUser}" method="post">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="username" th:field="*{username}" placeholder="username">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <!-- wichtig hier Thymeleaf einzufügen, damit der Parameter erkannt wird, welches in die Datenbank gespeichert werden soll-->
+                        <input type="password" th:field="*{password}" class="form-control" id="password1" placeholder="password">
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="repeat password" id="password2" th:field="*{verifyPassword}">
+                    </div>
+                    <div class="form-group">
+                        <!--<a th:href="@{/registrierungAbschliessen}" class="btn float-right btn-info btn-registration-secondpage" role="button">Registrate</a>-->
+                        <input type = submit value="Register" id="registrate" class="btn float-right btn-user-control btn-registration-secondpage" />
+                        <a th:href="@{/}" class="btn float-left btn-user-control btn-registration" role="button">Log In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
