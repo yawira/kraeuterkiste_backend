@@ -1,0 +1,29 @@
+@startuml
+Campaign <|-- Data
+Campaign <|-- Recipient
+User <|-- Campaign
+
+class User{
+    Campaign campaigns
+}
+
+class Recipient{
+    int id
+    String email
+    String name
+    Campaign campaign
+}
+
+class Campaign {
+    User userEntity
+    Recipient recipient
+    Data data
+    Newsletter newsletter
+}
+
+class Data{
+    int getUserCount()
+    int getUserActivity()
+}
+
+@enduml

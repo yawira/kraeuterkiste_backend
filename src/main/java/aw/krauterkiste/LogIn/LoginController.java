@@ -1,7 +1,7 @@
 package aw.krauterkiste.LogIn;
 
 
-import aw.krauterkiste.Model.UserDto;
+import aw.krauterkiste.LogIn.Model.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,7 +30,7 @@ public class LoginController {
     @PostMapping(value = "/loginUser")
     public String loginUser(Model model) {
 
-        return "redirect:/analytics";
+        return "redirect:/?";
     }
 
     @GetMapping(value = "/logOutUser")

@@ -1,0 +1,15 @@
+@startuml
+(*)  --> "Access Home Page"
+If "User has Account" then
+--> [Yes] "Log In"
+--> If "Are Details Correct"
+    --> [Yes] Access User Page
+    else
+    --> [No] Log In
+    Endif
+else
+--> [No] "Register"
+--> Access User Page
+Endif
+-->(*)
+@enduml

@@ -1,4 +1,4 @@
-package aw.krauterkiste.Model;
+package aw.krauterkiste.LogIn.Model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,9 +1,9 @@
 package aw.krauterkiste.LogIn;
 
 
-import aw.krauterkiste.Model.UserDto;
-import aw.krauterkiste.Model.UserEntity;
-import aw.krauterkiste.Repository.IUserRepository;
+import aw.krauterkiste.LogIn.Model.UserDto;
+import aw.krauterkiste.LogIn.Model.UserEntity;
+import aw.krauterkiste.LogIn.Repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
