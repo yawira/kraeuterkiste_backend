@@ -29,7 +29,7 @@ public class KraeuterkisteController {
     // Daten aus der Datenbank holen
 
     @ResponseBody
-    @RequestMapping(value = "/dataview", method = RequestMethod.GET)
+    @RequestMapping(value = "/dataview/moisture", method = RequestMethod.GET)
     public MoistureResponseBody showMoistureData() {
 
         MoistureResponseBody moistureResponseBody = new MoistureResponseBody();
@@ -40,7 +40,7 @@ public class KraeuterkisteController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/dataview", method = RequestMethod.GET)
+    @RequestMapping(value = "/dataview/exposure", method = RequestMethod.GET)
     public ExposureResponseBody showExposureData() {
 
         ExposureResponseBody exposureResponseBody = new ExposureResponseBody();
@@ -51,7 +51,7 @@ public class KraeuterkisteController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/dataview", method = RequestMethod.GET)
+    @RequestMapping(value = "/dataview/picture", method = RequestMethod.GET)
     public PicturesResponseBody showPictureData() {
 
         PicturesResponseBody picturesResponseBody = new PicturesResponseBody();
@@ -62,7 +62,7 @@ public class KraeuterkisteController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/dataview", method = RequestMethod.GET)
+    @RequestMapping(value = "/dataview/plant", method = RequestMethod.GET)
     public PlantResponseBody showPlantData() {
 
         PlantResponseBody plantResponseBody = new PlantResponseBody();
@@ -73,7 +73,7 @@ public class KraeuterkisteController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/dataview", method = RequestMethod.GET)
+    @RequestMapping(value = "/dataview/pump", method = RequestMethod.GET)
     public PumpResponseBody showPumpData() {
 
         PumpResponseBody pumpResponseBody = new PumpResponseBody();
