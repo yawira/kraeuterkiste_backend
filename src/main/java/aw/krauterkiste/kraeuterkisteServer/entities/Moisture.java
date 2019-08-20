@@ -20,5 +20,11 @@ public class Moisture {
     @Column(name="moistureId")
     private Long moistureId;
 
+    public Moisture() {
+    }
 
+    public Moisture(double moisturePercentage, LocalDateTime moistureDateTime) {
+        this.moisturePercentage = moisturePercentage;
+        this.moistureDateTime = moistureDateTime;
+    }
 }
