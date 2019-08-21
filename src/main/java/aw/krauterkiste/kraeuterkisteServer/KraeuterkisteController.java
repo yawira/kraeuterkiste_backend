@@ -25,7 +25,7 @@ public class KraeuterkisteController {
 
     // Daten aus der Datenbank holen
 
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true") 
     @GetMapping("/dataview/moisture")
     @ResponseBody
     public MoistureResponseBody showMoistureData() {
