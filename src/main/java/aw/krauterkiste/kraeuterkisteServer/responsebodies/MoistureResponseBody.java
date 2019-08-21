@@ -11,5 +11,4 @@ public class MoistureResponseBody {
 
     List<Moisture> moistureList = new ArrayList<Moisture>();
 
-
 }
