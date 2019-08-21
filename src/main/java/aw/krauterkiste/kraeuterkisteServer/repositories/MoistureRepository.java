@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface MoistureRepository extends JpaRepository<Moisture, Long> {
-
+    List<Moisture> findAllByOrderByMoistureDateTimeAsc();
 }

@@ -32,7 +32,7 @@ public class KraeuterkisteController {
 
         MoistureResponseBody moistureResponseBody = new MoistureResponseBody();
 
-        moistureResponseBody.setMoistureList(moistureRepository.findAll());
+        moistureResponseBody.setMoistureList(moistureRepository.findAllByOrderByMoistureDateTimeAsc());
 
         return moistureResponseBody;
     }
