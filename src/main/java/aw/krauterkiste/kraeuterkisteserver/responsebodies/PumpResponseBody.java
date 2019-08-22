@@ -1,7 +1,7 @@
-package aw.krauterkiste.kraeuterkisteServer.responsebodies;
+package aw.krauterkiste.kraeuterkisteserver.responsebodies;
 
 
-import aw.krauterkiste.kraeuterkisteServer.entities.Pump;
+import aw.krauterkiste.kraeuterkisteserver.entities.Pump;
 import lombok.Data;
 
 import java.util.ArrayList;

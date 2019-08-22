@@ -1,7 +1,7 @@
-package aw.krauterkiste.kraeuterkisteServer;
+package aw.krauterkiste.kraeuterkisteserver;
 
-import aw.krauterkiste.kraeuterkisteServer.repositories.*;
-import aw.krauterkiste.kraeuterkisteServer.responsebodies.*;
+import aw.krauterkiste.kraeuterkisteserver.repositories.*;
+import aw.krauterkiste.kraeuterkisteserver.responsebodies.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +25,7 @@ public class KraeuterkisteController {
 
     // Daten aus der Datenbank holen
 
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true") 
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/dataview/moisture")
     @ResponseBody
     public MoistureResponseBody showMoistureData() {
@@ -48,16 +48,7 @@ public class KraeuterkisteController {
         return exposureResponseBody;
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/dataview/picture", method = RequestMethod.GET)
-    public PicturesResponseBody showPictureData() {
 
-        PicturesResponseBody picturesResponseBody = new PicturesResponseBody();
-
-        picturesResponseBody.setPicturesList(picturesRepository.findAll());
-
-        return picturesResponseBody;
-    }
 
     @ResponseBody
     @RequestMapping(value = "/dataview/plant", method = RequestMethod.GET)

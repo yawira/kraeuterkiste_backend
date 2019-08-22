@@ -1,6 +1,6 @@
-package aw.krauterkiste.kraeuterkisteServer.repositories;
+package aw.krauterkiste.kraeuterkisteserver.repositories;
 
-import aw.krauterkiste.kraeuterkisteServer.entities.Moisture;
+import aw.krauterkiste.kraeuterkisteserver.entities.Moisture;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

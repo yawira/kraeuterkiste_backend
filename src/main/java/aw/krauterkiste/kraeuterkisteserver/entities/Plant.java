@@ -1,4 +1,4 @@
-package aw.krauterkiste.kraeuterkisteServer.entities;
+package aw.krauterkiste.kraeuterkisteserver.entities;
 
 import lombok.Data;
 
