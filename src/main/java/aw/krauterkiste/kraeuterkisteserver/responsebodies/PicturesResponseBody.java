@@ -12,6 +12,4 @@ public class PicturesResponseBody {
 
     List<Pictures> picturesList = new ArrayList<Pictures>();
 
-    MultipartFile multipartFile;
-
 }

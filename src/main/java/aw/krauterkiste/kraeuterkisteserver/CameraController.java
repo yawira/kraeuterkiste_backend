@@ -1,5 +1,6 @@
 package aw.krauterkiste.kraeuterkisteserver;
 
+import java.util.Base64;
 import aw.krauterkiste.kraeuterkisteserver.repositories.PicturesRepository;
 import aw.krauterkiste.kraeuterkisteserver.responsebodies.PicturesResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.nio.file.Files;
 
 @RestController
 public class CameraController {
@@ -23,18 +25,23 @@ public class CameraController {
         this.picturesRepository = picturesRepository;
     }
 
-    // object returned by the method should be marshalled directly to the HTTP response body
 
-//    @PostMapping(value = "/upload")
-//    @ResponseBody
-//    public PicturesResponseBody showPicture() {
-//
-//        PicturesResponseBody picturesResponseBody = new PicturesResponseBody();
-//
-//        picturesResponseBody.setPicturesList(picturesRepository.findAll());
-//
-//        return picturesResponseBody;
-//    }
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @GetMapping(value = "/readImage")
+    @ResponseBody
+    public String readImage() throws IOException {
+
+
+        BufferedImage image = ImageIO.read(new File("C:\\Users\\kozyr\\Desktop\\pictureR\\cool.jpg"));
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ImageIO.write(image, "png", outputStream);
+        byte[] encodedImageBytes = Base64.getEncoder().encode(outputStream.toByteArray());
+        String encodedImage = new String(encodedImageBytes);
+
+
+        return encodedImage;
+
+    }
 
 
     // this method takes the file that was given as a payload by the Client and stores it at a chosen place
