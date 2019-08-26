@@ -16,6 +16,6 @@ public class LEDService {
     }
 
     public LEDDto toggle() {
-        return raspiRestTemplate.getForObject("/test", LEDDto.class);
+        return raspiRestTemplate.getForObject("/led/toggle", LEDDto.class);
     }
 }
