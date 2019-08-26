@@ -29,7 +29,6 @@ public class KraeuterkisteController {
     @GetMapping("/dataview/moisture")
     @ResponseBody
     public MoistureResponseBody showMoistureData() {
-
         MoistureResponseBody moistureResponseBody = new MoistureResponseBody();
 
         moistureResponseBody.setMoistureList(moistureRepository.findAllByOrderByMoistureDateTimeAsc());
@@ -72,7 +71,7 @@ public class KraeuterkisteController {
 
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @ResponseBody
-    @RequestMapping(value = "/dataview/pump", method = RequestMethod.GET)
+    @GetMapping("/dataview/pump")
     public PumpResponseBody showPumpData() {
 
         PumpResponseBody pumpResponseBody = new PumpResponseBody();
@@ -81,4 +80,5 @@ public class KraeuterkisteController {
 
         return pumpResponseBody;
     }
+
 }
