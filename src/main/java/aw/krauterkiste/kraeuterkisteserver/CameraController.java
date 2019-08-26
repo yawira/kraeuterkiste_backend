@@ -3,20 +3,10 @@ package aw.krauterkiste.kraeuterkisteserver;
 import aw.krauterkiste.kraeuterkisteserver.repositories.PicturesRepository;
 import aw.krauterkiste.kraeuterkisteserver.responsebodies.PicturesResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.multipart.MultipartFile;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Collections;
+
 
 
 @RestController
@@ -57,16 +47,7 @@ public class CameraController {
     }
 */
 
-        /*@GetMapping
-        public String getImageFromRaspi () throws IOException {
 
-        RestTemplate restTemplate = new RestTemplate();
-
-
-        String fileResponse = restTemplate.getForObject("http://localhost:2020/upload",String.class);
-        System.out.println(fileResponse);
-        return fileResponse;
-    }*/
 
         @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
         @GetMapping(value = "/readImage")
@@ -76,12 +57,9 @@ public class CameraController {
             PicturesResponseBody picturesResponseBody = new PicturesResponseBody();
 
             RestTemplate restTemplate = new RestTemplate();
-            String fileResponse = restTemplate.getForObject("http://localhost:2020/upload",String.class);
-            System.out.println(fileResponse);
-
+            String fileResponse = restTemplate.getForObject("http://192.168.43.240:7070/upload",String.class);
 
             picturesResponseBody.setEncodedImage(fileResponse);
-            System.out.println("Foto" + fileResponse);
 
             return picturesResponseBody;
 
