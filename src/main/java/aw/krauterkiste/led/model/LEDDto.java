@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LEDDto {
-    private boolean ledStatus;
+    private boolean on;
 }
