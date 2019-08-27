@@ -1,13 +1,13 @@
 package aw.krauterkiste;
 
-import aw.krauterkiste.camera.repository.PicturesRepository;
+import aw.krauterkiste.camera.repository.PictureRepository;
 import aw.krauterkiste.exposure.repository.ExposureRepository;
-import aw.krauterkiste.exposure.model.ExposureResponseBody;
+import aw.krauterkiste.exposure.model.ExposureDto;
 import aw.krauterkiste.moisture.repository.MoistureRepository;
-import aw.krauterkiste.moisture.model.MoistureResponseBody;
+import aw.krauterkiste.moisture.model.MoistureDto;
 import aw.krauterkiste.plant.repository.PlantRepository;
-import aw.krauterkiste.plant.model.PlantResponseBody;
-import aw.krauterkiste.pump.model.PumpResponseBody;
+import aw.krauterkiste.plant.model.PlantDto;
+import aw.krauterkiste.pump.model.PumpDataDto;
 import aw.krauterkiste.pump.repository.PumpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,15 +17,15 @@ public class KraeuterkisteController {
 
     private final MoistureRepository moistureRepository;
     private final ExposureRepository exposureRepository;
-    private final PicturesRepository picturesRepository;
+    private final PictureRepository pictureRepository;
     private final PlantRepository plantRepository;
     private final PumpRepository pumpRepository;
 
     @Autowired
-    public KraeuterkisteController(MoistureRepository moistureRepository, ExposureRepository exposureRepository, PicturesRepository picturesRepository, PlantRepository plantRepository, PumpRepository pumpRepository) {
+    public KraeuterkisteController(MoistureRepository moistureRepository, ExposureRepository exposureRepository, PictureRepository pictureRepository, PlantRepository plantRepository, PumpRepository pumpRepository) {
         this.moistureRepository = moistureRepository;
         this.exposureRepository = exposureRepository;
-        this.picturesRepository = picturesRepository;
+        this.pictureRepository = pictureRepository;
         this.plantRepository = plantRepository;
         this.pumpRepository = pumpRepository;
     }
@@ -35,48 +35,48 @@ public class KraeuterkisteController {
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/dataview/moisture")
     @ResponseBody
-    public MoistureResponseBody showMoistureData() {
-        MoistureResponseBody moistureResponseBody = new MoistureResponseBody();
+    public MoistureDto showMoistureData() {
+        MoistureDto moistureDto = new MoistureDto();
 
-        moistureResponseBody.setMoistureList(moistureRepository.findAllByOrderByMoistureDateTimeAsc());
+        moistureDto.setMoistureList(moistureRepository.findAllByOrderByMoistureDateTimeAsc());
 
-        return moistureResponseBody;
+        return moistureDto;
     }
 
     @ResponseBody
     @RequestMapping(value = "/dataview/exposure", method = RequestMethod.GET)
-    public ExposureResponseBody showExposureData() {
+    public ExposureDto showExposureData() {
 
-        ExposureResponseBody exposureResponseBody = new ExposureResponseBody();
+        ExposureDto exposureDto = new ExposureDto();
 
-        exposureResponseBody.setExposureList(exposureRepository.findAll());
+        exposureDto.setExposureList(exposureRepository.findAll());
 
-        return exposureResponseBody;
+        return exposureDto;
     }
 
 
 
     @ResponseBody
     @RequestMapping(value = "/dataview/plant", method = RequestMethod.GET)
-    public PlantResponseBody showPlantData() {
+    public PlantDto showPlantData() {
 
-        PlantResponseBody plantResponseBody = new PlantResponseBody();
+        PlantDto plantDto = new PlantDto();
 
-        plantResponseBody.setPlantList(plantRepository.findAll());
+        plantDto.setPlantList(plantRepository.findAll());
 
-        return plantResponseBody;
+        return plantDto;
     }
 
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @ResponseBody
     @GetMapping("/dataview/pump")
-    public PumpResponseBody showPumpData() {
+    public PumpDataDto showPumpData() {
 
-        PumpResponseBody pumpResponseBody = new PumpResponseBody();
+        PumpDataDto pumpDataDto = new PumpDataDto();
 
-        pumpResponseBody.setPumpList(pumpRepository.findAll());
+        pumpDataDto.setPumpList(pumpRepository.findAll());
 
-        return pumpResponseBody;
+        return pumpDataDto;
     }
 
 }

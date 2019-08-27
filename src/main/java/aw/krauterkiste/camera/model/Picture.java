@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-public class Pictures {
+public class Picture {
 
     // fileName = Name der Bilddatei
     private String fileName;

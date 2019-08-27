@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class PumpResponseBody {
+public class PumpDataDto {
 
     List<Pump> pumpList = new ArrayList<Pump>();
 

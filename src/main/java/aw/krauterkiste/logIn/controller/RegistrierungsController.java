@@ -1,9 +1,9 @@
-package aw.krauterkiste.login.controller;
+package aw.krauterkiste.logIn.controller;
 
 
-import aw.krauterkiste.login.model.UserDto;
-import aw.krauterkiste.login.service.RegisterService;
-import aw.krauterkiste.login.repository.IUserRepository;
+import aw.krauterkiste.logIn.model.UserDto;
+import aw.krauterkiste.logIn.service.RegisterService;
+import aw.krauterkiste.logIn.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

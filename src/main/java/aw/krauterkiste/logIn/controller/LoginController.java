@@ -1,8 +1,8 @@
-package aw.krauterkiste.login.controller;
+package aw.krauterkiste.logIn.controller;
 
 
-import aw.krauterkiste.login.service.LoginService;
-import aw.krauterkiste.login.model.UserDto;
+import aw.krauterkiste.logIn.service.LoginService;
+import aw.krauterkiste.logIn.model.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.context.SecurityContextHolder;

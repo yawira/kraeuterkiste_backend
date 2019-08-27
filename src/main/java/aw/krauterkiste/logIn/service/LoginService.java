@@ -1,8 +1,8 @@
-package aw.krauterkiste.login.service;
+package aw.krauterkiste.logIn.service;
 
 
 
-import aw.krauterkiste.login.repository.IUserRepository;
+import aw.krauterkiste.logIn.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,7 +27,7 @@ public class LoginService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        aw.krauterkiste.login.model.UserEntity userEntity = iUserRepository.findByUsername(username);
+        aw.krauterkiste.logIn.model.UserEntity userEntity = iUserRepository.findByUsername(username);
         if (userEntity == null) {
             throw new UsernameNotFoundException("Username '" + username + "' not found!");
         }

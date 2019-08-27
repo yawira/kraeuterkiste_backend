@@ -1,6 +1,6 @@
-package aw.krauterkiste.login.repository;
+package aw.krauterkiste.logIn.repository;
 
-import aw.krauterkiste.login.model.UserEntity;
+import aw.krauterkiste.logIn.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 

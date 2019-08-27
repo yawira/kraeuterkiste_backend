@@ -1,6 +1,6 @@
-package aw.krauterkiste.login.config;
+package aw.krauterkiste.logIn.config;
 
-import aw.krauterkiste.login.service.LoginService;
+import aw.krauterkiste.logIn.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
