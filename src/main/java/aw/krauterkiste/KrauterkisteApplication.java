@@ -1,7 +1,7 @@
 package aw.krauterkiste;
 
-import aw.krauterkiste.kraeuterkisteserver.entities.Moisture;
-import aw.krauterkiste.kraeuterkisteserver.repositories.MoistureRepository;
+import aw.krauterkiste.moisture.model.Moisture;
+import aw.krauterkiste.moisture.repository.MoistureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
