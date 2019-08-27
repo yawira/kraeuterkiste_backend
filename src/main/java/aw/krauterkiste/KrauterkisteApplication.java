@@ -31,7 +31,5 @@ public class KrauterkisteApplication {
         moistureRepository.save(moistureData2);
         moistureRepository.save(moistureData3);
         moistureRepository.save(moistureData4);
-
     }
-
 }
