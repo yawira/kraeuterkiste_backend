@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class MoistureDto {
+public class MoistureDataDto {
 
     List<Moisture> moistureList = new ArrayList<Moisture>();
 

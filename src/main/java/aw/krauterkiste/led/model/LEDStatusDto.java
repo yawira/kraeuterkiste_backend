@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LEDDto {
+public class LEDStatusDto {
     private boolean on;
 }

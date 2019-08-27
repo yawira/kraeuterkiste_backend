@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PumpDto {
+public class PumpStatusDto {
     private boolean on;
 }

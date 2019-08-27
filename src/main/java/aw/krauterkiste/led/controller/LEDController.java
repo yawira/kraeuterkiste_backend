@@ -1,7 +1,7 @@
 package aw.krauterkiste.led.controller;
 
 import aw.krauterkiste.led.service.LEDService;
-import aw.krauterkiste.led.model.LEDDto;
+import aw.krauterkiste.led.model.LEDStatusDto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,7 +17,7 @@ public class LEDController {
     @CrossOrigin(value = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/toggle")
     @ResponseBody
-    public LEDDto toggle() {
+    public LEDStatusDto toggle() {
         return ledService.toggle();
     }
 }

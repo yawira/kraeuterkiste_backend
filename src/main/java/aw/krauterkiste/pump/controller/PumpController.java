@@ -1,7 +1,7 @@
 package aw.krauterkiste.pump.controller;
 
 import aw.krauterkiste.pump.service.PumpService;
-import aw.krauterkiste.pump.model.PumpDto;
+import aw.krauterkiste.pump.model.PumpStatusDto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,7 +17,7 @@ public class PumpController {
     @CrossOrigin(value = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/toggle")
     @ResponseBody
-    public PumpDto toggle() {
+    public PumpStatusDto toggle() {
         return pumpService.toggle();
     }
 }

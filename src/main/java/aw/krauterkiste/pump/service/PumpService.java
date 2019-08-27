@@ -1,6 +1,6 @@
 package aw.krauterkiste.pump.service;
 
-import aw.krauterkiste.pump.model.PumpDto;
+import aw.krauterkiste.pump.model.PumpStatusDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -15,7 +15,7 @@ public class PumpService {
         this.raspiRestTemplate = raspiRestTemplate;
     }
 
-    public PumpDto toggle() {
-        return raspiRestTemplate.getForObject("/pump/toggle", PumpDto.class);
+    public PumpStatusDto toggle() {
+        return raspiRestTemplate.getForObject("/pump/toggle", PumpStatusDto.class);
     }
 }
