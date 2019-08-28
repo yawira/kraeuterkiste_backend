@@ -35,4 +35,3 @@ public class PumpController {
         return pumpService.getData();
     }
 }
-

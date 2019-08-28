@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -32,13 +31,12 @@ public class PumpService {
         if(statusDto.isOn()) {
             LocalDateTime start = LocalDateTime.now();
             Pump pump = new Pump();
-            pump.setPumpDateTime(start);
+            pump.setStart(start);
             pumpRepository.save(pump);
         } else {
             LocalDateTime end = LocalDateTime.now();
             Pump pump = pumpRepository.findTopByOrderByPumpDateTimeDesc();
-            LocalDateTime start = pump.getPumpDateTime();
-            pump.setPumpInSecs((int) ChronoUnit.SECONDS.between(start,end));
+            pump.setStop(end);
             pumpRepository.save(pump);
         }
 

@@ -9,12 +9,11 @@ import java.time.LocalDateTime;
 @Entity
 public class Pump {
 
-    private int pumpInSecs;
-    private LocalDateTime pumpDateTime;
+    private LocalDateTime start;
+    private LocalDateTime stop;
 
     @Id
     @GeneratedValue
-    @Column(name="pumpId")
     private Long pumpId;
 
 }
