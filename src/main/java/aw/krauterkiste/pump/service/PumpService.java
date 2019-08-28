@@ -35,7 +35,7 @@ public class PumpService {
             pumpRepository.save(pump);
         } else {
             LocalDateTime end = LocalDateTime.now();
-            Pump pump = pumpRepository.findTopByOrderByPumpDateTimeDesc();
+            Pump pump = pumpRepository.findTopByOrderByStartDesc();
             pump.setStop(end);
             pumpRepository.save(pump);
         }
