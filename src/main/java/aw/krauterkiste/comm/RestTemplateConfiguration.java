@@ -1,6 +1,5 @@
 package aw.krauterkiste.comm;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -13,9 +12,9 @@ public class RestTemplateConfiguration {
     @Value("${raspi.url}")
     private String raspiURL;
 
-    @Bean("RaspiRestTemplate")
-    @Autowired
-    public RestTemplate raspiRestTemplate(RestTemplateBuilder builder) {
+    @Bean("raspiRestTemplate")
+    public RestTemplate raspiRestTemplate() {
+        RestTemplateBuilder builder = new RestTemplateBuilder();
         return raspiRestTemplateBuilder(builder);
     }
 
