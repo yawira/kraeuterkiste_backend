@@ -2,19 +2,15 @@ package aw.krauterkiste.pump.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
 public class Pump {
 
-    private LocalDateTime startWatering;
-    private LocalDateTime stopWatering;
-    private LocalDateTime wateringDuration;
+    private int pumpInSecs;
+    private LocalDateTime pumpDateTime;
 
     @Id
     @GeneratedValue

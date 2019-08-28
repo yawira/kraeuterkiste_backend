@@ -26,7 +26,8 @@ public class ExposureService {
     }
 
     public ExposureStatusDto toggle() {
-        ExposureStatusDto statusDto = raspiRestTemplate.getForObject("/led/toggle", ExposureStatusDto.class);
+        ExposureStatusDto statusDto = raspiRestTemplate
+                .getForObject("/led/toggle", ExposureStatusDto.class);
 
         if(statusDto.isOn()) {
             LocalDateTime start = LocalDateTime.now();

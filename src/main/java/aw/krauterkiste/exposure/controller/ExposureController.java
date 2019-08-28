@@ -29,4 +29,3 @@ public class ExposureController {
         return exposureService.getData();
     }
 }
-

@@ -1,7 +1,5 @@
 package aw.krauterkiste.pump.model;
 
-
-import aw.krauterkiste.pump.model.Pump;
 import lombok.Data;
 
 import java.util.ArrayList;
