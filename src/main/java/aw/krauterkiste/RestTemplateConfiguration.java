@@ -13,7 +13,7 @@ public class RestTemplateConfiguration {
     @Value("${raspi.url}")
     private String raspiURL;
 
-    @Bean
+    @Bean("RaspiRestTemplate")
     @Autowired
     public RestTemplate raspiRestTemplate(RestTemplateBuilder builder) {
         return raspiRestTemplateBuilder(builder);

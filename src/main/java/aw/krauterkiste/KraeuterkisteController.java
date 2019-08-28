@@ -4,7 +4,7 @@ import aw.krauterkiste.camera.repository.PictureRepository;
 import aw.krauterkiste.exposure.repository.ExposureRepository;
 import aw.krauterkiste.exposure.model.ExposureDataDto;
 import aw.krauterkiste.moisture.repository.MoistureRepository;
-import aw.krauterkiste.moisture.model.MoistureDataDto;
+import aw.krauterkiste.moisture.model.MoistureEntityDto;
 import aw.krauterkiste.plant.repository.PlantRepository;
 import aw.krauterkiste.plant.model.PlantDto;
 import aw.krauterkiste.pump.model.PumpDataDto;
@@ -35,14 +35,16 @@ public class KraeuterkisteController {
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/dataview/moisture")
     @ResponseBody
-    public MoistureDataDto showMoistureData() {
-        MoistureDataDto moistureDataDto = new MoistureDataDto();
+    public MoistureEntityDto showMoistureData() {
+
+        MoistureEntityDto moistureDataDto = new MoistureEntityDto();
 
         moistureDataDto.setMoistureList(moistureRepository.findAllByOrderByMoistureDateTimeAsc());
 
         return moistureDataDto;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @ResponseBody
     @RequestMapping(value = "/dataview/exposure", method = RequestMethod.GET)
     public ExposureDataDto showExposureData() {

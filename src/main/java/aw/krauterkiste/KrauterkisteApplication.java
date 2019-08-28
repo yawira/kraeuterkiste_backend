@@ -1,5 +1,6 @@
 package aw.krauterkiste;
 
+import aw.krauterkiste.moisture.controller.MoistureController;
 import aw.krauterkiste.moisture.model.Moisture;
 import aw.krauterkiste.moisture.repository.MoistureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
