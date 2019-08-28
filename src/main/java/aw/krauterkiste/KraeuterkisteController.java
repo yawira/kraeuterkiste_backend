@@ -2,7 +2,7 @@ package aw.krauterkiste;
 
 import aw.krauterkiste.camera.repository.PictureRepository;
 import aw.krauterkiste.exposure.repository.ExposureRepository;
-import aw.krauterkiste.exposure.model.ExposureDto;
+import aw.krauterkiste.exposure.model.ExposureDataDto;
 import aw.krauterkiste.moisture.repository.MoistureRepository;
 import aw.krauterkiste.moisture.model.MoistureDataDto;
 import aw.krauterkiste.plant.repository.PlantRepository;
@@ -45,13 +45,13 @@ public class KraeuterkisteController {
 
     @ResponseBody
     @RequestMapping(value = "/dataview/exposure", method = RequestMethod.GET)
-    public ExposureDto showExposureData() {
+    public ExposureDataDto showExposureData() {
 
-        ExposureDto exposureDto = new ExposureDto();
+        ExposureDataDto exposureDataDto = new ExposureDataDto();
 
-        exposureDto.setExposureList(exposureRepository.findAll());
+        exposureDataDto.setExposureList(exposureRepository.findAll());
 
-        return exposureDto;
+        return exposureDataDto;
     }
 
 

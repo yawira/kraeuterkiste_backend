@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class ExposureDto {
+public class ExposureDataDto {
 
     List<Exposure> exposureList = new ArrayList<Exposure>();
 

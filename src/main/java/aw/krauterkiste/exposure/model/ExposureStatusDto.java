@@ -1,4 +1,4 @@
-package aw.krauterkiste.led.model;
+package aw.krauterkiste.exposure.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LEDStatusDto {
+public class ExposureStatusDto {
     private boolean on;
 }
