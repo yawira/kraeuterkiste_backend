@@ -10,13 +10,11 @@ import java.time.LocalDateTime;
 public class Exposure {
 
     private int exposureInSecs;
-    private boolean active;
     private LocalDateTime exposureDateTime;
 
     @Id
     @GeneratedValue
     @Column(name="exposureId")
     private Long exposureId;
-
 
 }
