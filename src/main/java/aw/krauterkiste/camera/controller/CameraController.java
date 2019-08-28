@@ -3,12 +3,10 @@ package aw.krauterkiste.camera.controller;
 import aw.krauterkiste.camera.repository.PictureRepository;
 import aw.krauterkiste.camera.model.PictureDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
-
 
 @RestController
 public class CameraController {
@@ -26,7 +24,7 @@ public class CameraController {
 
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @GetMapping(value = "/readImage")
-    @ResponseBody()
+    @ResponseBody
     public PictureDto readImage() throws IOException {
         PictureDto pictureDto = new PictureDto();
 
