@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ExposureRepository extends JpaRepository<Exposure, Long> {
 
-    Exposure findTopByOrderByExposureDateTimeDesc();
+    Exposure findTopByOrderByStartDesc();
 }

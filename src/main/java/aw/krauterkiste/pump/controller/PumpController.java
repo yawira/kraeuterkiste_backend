@@ -3,10 +3,15 @@ package aw.krauterkiste.pump.controller;
 import aw.krauterkiste.pump.model.PumpDataDto;
 import aw.krauterkiste.pump.service.PumpService;
 import aw.krauterkiste.pump.model.PumpStatusDto;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.PostConstruct;
 
 @RestController
 @RequestMapping("/pump")
+@EnableScheduling
 public class PumpController {
 
     private final PumpService pumpService;
@@ -22,6 +27,7 @@ public class PumpController {
         return pumpService.toggle();
     }
 
+
     @CrossOrigin(value = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/data")
     @ResponseBody
@@ -29,3 +35,4 @@ public class PumpController {
         return pumpService.getData();
     }
 }
+

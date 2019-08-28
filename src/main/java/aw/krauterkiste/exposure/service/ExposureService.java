@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -32,13 +31,12 @@ public class ExposureService {
         if(statusDto.isOn()) {
             LocalDateTime start = LocalDateTime.now();
             Exposure exposure = new Exposure();
-            exposure.setExposureDateTime(start);
+            exposure.setStart(start);
             exposureRepository.save(exposure);
         } else {
             LocalDateTime end = LocalDateTime.now();
-            Exposure exposure = exposureRepository.findTopByOrderByExposureDateTimeDesc();
-            LocalDateTime start = exposure.getExposureDateTime();
-            exposure.setExposureInSecs((int) ChronoUnit.SECONDS.between(start, end));
+            Exposure exposure = exposureRepository.findTopByOrderByStartDesc();
+            exposure.setStop(end);
             exposureRepository.save(exposure);
         }
 
