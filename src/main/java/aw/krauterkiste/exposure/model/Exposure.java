@@ -9,12 +9,11 @@ import java.time.LocalDateTime;
 @Entity
 public class Exposure {
 
-    private int exposureInSecs;
-    private LocalDateTime exposureDateTime;
+    private LocalDateTime start;
+    private LocalDateTime stop;
 
     @Id
     @GeneratedValue
-    @Column(name="exposureId")
-    private Long exposureId;
+    private Long id;
 
 }

@@ -2,10 +2,15 @@ package aw.krauterkiste.pump.controller;
 
 import aw.krauterkiste.pump.service.PumpService;
 import aw.krauterkiste.pump.model.PumpStatusDto;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.PostConstruct;
 
 @RestController
 @RequestMapping("/pump")
+@EnableScheduling
 public class PumpController {
 
     private final PumpService pumpService;
@@ -20,6 +25,7 @@ public class PumpController {
     public PumpStatusDto toggle() {
         return pumpService.toggle();
     }
+
 }
 
 // TODO neues Package für die Pumpe > COntroller, model, service
