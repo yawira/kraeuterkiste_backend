@@ -22,11 +22,13 @@ public class MoistureController {
         this.raspiRestTemplate = raspiRestTemplate;
     }
 
+
     @PostMapping("/data")
-    public void measureMoisture(@ModelAttribute MoistureDto moistureDto){
+    public void measureMoisture(@RequestBody MoistureDto moistureDto){
         Moisture moisture = new Moisture();
         moisture.setMoistureDateTime(LocalDateTime.now());
         moisture.setMoisturePercentage(moistureDto.getMoistureData());
+
         moistureRepository.save(moisture);
     }
 }
