@@ -13,25 +13,24 @@ import java.io.*;
 @RestController
 public class CameraController {
 
-    @Value("${raspi.url}")
-    private String raspiUrl;
+    private final RestTemplate raspiRestTemplate;
 
     private final PictureRepository pictureRepository;
 
     @Autowired
-    public CameraController(PictureRepository pictureRepository) {
+    public CameraController(PictureRepository pictureRepository,
+                            RestTemplate raspiRestTemplate) {
         this.pictureRepository = pictureRepository;
+        this.raspiRestTemplate = raspiRestTemplate;
     }
 
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @GetMapping(value = "/readImage")
     @ResponseBody()
     public PictureDto readImage() throws IOException {
-
         PictureDto pictureDto = new PictureDto();
 
-        RestTemplate restTemplate = new RestTemplate();
-        String fileResponse = restTemplate.getForObject(raspiUrl + "/upload", String.class);
+        String fileResponse = raspiRestTemplate.getForObject("/upload", String.class);
 
         pictureDto.setEncodedImage(fileResponse);
 
