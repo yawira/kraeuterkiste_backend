@@ -7,39 +7,25 @@ import aw.krauterkiste.exposure.model.ExposureStatusDto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/led")
+@RequestMapping("/exposure")
 public class ExposureController {
 
-    private final ExposureRepository exposureRepository;
     private final ExposureService exposureService;
 
-    public ExposureController(ExposureService exposureService, ExposureRepository exposureRepository) {
-        this.exposureRepository = exposureRepository;
+    public ExposureController(ExposureService exposureService) {
         this.exposureService = exposureService;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
-    @ResponseBody
-    @GetMapping("/dataview/exposure")
-    public ExposureDataDto showExposureData() {
-
-        ExposureDataDto exposureDataDto = new ExposureDataDto();
-
-        exposureDataDto.setExposureList(exposureRepository.findAll());
-
-        return exposureDataDto;
-    }
-
-    @CrossOrigin(value = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/toggle")
     @ResponseBody
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     public ExposureStatusDto toggle() {
         return exposureService.toggle();
     }
 
-    @CrossOrigin(value = "http://localhost:3000", allowCredentials = "true")
     @GetMapping("/data")
     @ResponseBody
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     public ExposureDataDto getData() {
         return exposureService.getData();
     }

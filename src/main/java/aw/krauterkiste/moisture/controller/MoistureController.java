@@ -23,11 +23,10 @@ public class MoistureController {
         this.raspiRestTemplate = raspiRestTemplate;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
-    @GetMapping("/dataview/moisture")
+    @GetMapping("/data")
     @ResponseBody
-    public MoistureEntityDto showMoistureData() {
-
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    public MoistureEntityDto fetchMoistureData() {
         MoistureEntityDto moistureDataDto = new MoistureEntityDto();
 
         moistureDataDto.setMoistureList(moistureRepository.findAllByOrderByMoistureDateTimeAsc());
@@ -36,7 +35,7 @@ public class MoistureController {
     }
 
     @PostMapping("/data")
-    public void measureMoisture(@RequestBody MoistureDto moistureDto){
+    public void saveMoistureData(@RequestBody MoistureDto moistureDto){
         Moisture moisture = new Moisture();
         moisture.setMoistureDateTime(LocalDateTime.now());
         moisture.setMoisturePercentage(moistureDto.getMoistureData());

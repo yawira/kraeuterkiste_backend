@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class PumpService {
@@ -44,9 +43,10 @@ public class PumpService {
     }
 
     public PumpDataDto getData(){
-        List<Pump> data = pumpRepository.findAll();
-        PumpDataDto dataDto = new PumpDataDto();
-        dataDto.setPumpList(data);
-        return dataDto;
+        PumpDataDto pumpDataDto = new PumpDataDto();
+
+        pumpDataDto.setPumpList(pumpRepository.findAll());
+
+        return pumpDataDto;
     }
 }

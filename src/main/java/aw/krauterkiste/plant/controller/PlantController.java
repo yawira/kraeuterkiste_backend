@@ -3,6 +3,7 @@ package aw.krauterkiste.plant.controller;
 import aw.krauterkiste.plant.model.PlantDto;
 import aw.krauterkiste.plant.repository.PlantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,9 +19,9 @@ public class PlantController {
     }
 
     @ResponseBody
-    @GetMapping("/dataview/plant")
+    @GetMapping("/data")
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     public PlantDto showPlantData() {
-
         PlantDto plantDto = new PlantDto();
 
         plantDto.setPlantList(plantRepository.findAll());

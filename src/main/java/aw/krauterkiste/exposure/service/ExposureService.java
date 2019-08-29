@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class ExposureService {
@@ -44,9 +43,10 @@ public class ExposureService {
     }
 
     public ExposureDataDto getData() {
-        List<Exposure> data = exposureRepository.findAll();
-        ExposureDataDto dataDto = new ExposureDataDto();
-        dataDto.setExposureList(data);
-        return dataDto;
+        ExposureDataDto exposureDataDto = new ExposureDataDto();
+
+        exposureDataDto.setExposureList(exposureRepository.findAll());
+
+        return exposureDataDto;
     }
 }
