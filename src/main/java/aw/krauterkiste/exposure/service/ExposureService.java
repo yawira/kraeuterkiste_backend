@@ -40,7 +40,6 @@ public class ExposureService {
 
     public List<ExposureData> getData() {
         List<ExposureData> data = new ArrayList<>();
-
         List<Exposure> rawData = exposureRepository.findAllByOrderByDateTimeDesc();
 
         LocalDateTime start = null;
@@ -56,8 +55,7 @@ public class ExposureService {
             }
 
             if(start != null && stop != null && stop.isAfter(start)) {
-                ExposureData exposureData = new ExposureData(start, stop);
-                data.add(exposureData);
+                data.add(new ExposureData(start, stop));
             }
         }
 

@@ -40,7 +40,6 @@ public class PumpService {
 
     public List<PumpData> getData(){
         List<PumpData> data = new ArrayList<>();
-
         List<Pump> rawData = pumpRepository.findAllByOrderByDateTimeDesc();
 
         LocalDateTime start = null;
@@ -56,8 +55,7 @@ public class PumpService {
             }
 
             if(start != null && stop != null && stop.isAfter(start)) {
-                PumpData exposureData = new PumpData(start, stop);
-                data.add(exposureData);
+                data.add(new PumpData(start, stop));
             }
         }
 

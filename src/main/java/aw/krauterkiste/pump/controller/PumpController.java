@@ -1,6 +1,5 @@
 package aw.krauterkiste.pump.controller;
 
-import aw.krauterkiste.exposure.model.ExposureData;
 import aw.krauterkiste.pump.model.PumpData;
 import aw.krauterkiste.pump.service.PumpService;
 import aw.krauterkiste.pump.model.PumpDto;
