@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.*;
-
 @RestController
-@RequestMapping("camera")
+@RequestMapping("/camera")
 public class CameraController {
 
     private final RestTemplate raspiRestTemplate;

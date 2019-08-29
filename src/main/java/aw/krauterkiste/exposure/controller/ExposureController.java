@@ -1,7 +1,6 @@
 package aw.krauterkiste.exposure.controller;
 
 import aw.krauterkiste.exposure.model.ExposureDataDto;
-import aw.krauterkiste.exposure.repository.ExposureRepository;
 import aw.krauterkiste.exposure.service.ExposureService;
 import aw.krauterkiste.exposure.model.ExposureStatusDto;
 import org.springframework.web.bind.annotation.*;
