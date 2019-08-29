@@ -45,13 +45,16 @@ public class ExposureService {
 
         LocalDateTime start = null;
         LocalDateTime stop = null;
+
         for(Exposure rawDataItem : rawData) {
             LocalDateTime dateTime = rawDataItem.getDateTime();
+
             if(rawDataItem.isOn()) {
                 start = dateTime;
             } else {
                 stop = dateTime;
             }
+
             if(start != null && stop != null && stop.isAfter(start)) {
                 ExposureData exposureData = new ExposureData(start, stop);
                 exposureDataDto.getExposureList().add(exposureData);
