@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ExposureDto {
-
     private LocalDateTime dateTime;
-    private boolean on;
+    private boolean active;
 }

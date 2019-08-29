@@ -5,15 +5,15 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Data
 @Entity
+@Data
 public class Exposure {
-
-    private LocalDateTime dateTime;
-    private boolean on;
 
     @Id
     @GeneratedValue
     private Long id;
+
+    private LocalDateTime dateTime;
+    private boolean active;
 
 }
