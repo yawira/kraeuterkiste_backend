@@ -12,6 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 public class ExposureDataDto {
 
-    List<Exposure> exposureList = new ArrayList<Exposure>();
+    List<ExposureData> exposureList = new ArrayList<>();
 
 }
