@@ -1,6 +1,9 @@
 package aw.krauterkiste.moisture.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,21 +13,16 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Moisture {
 
-    private double moisturePercentage;
-    private LocalDateTime moistureDateTime;
+    private double percentage;
+    private LocalDateTime dateTime;
 
     @Id
     @GeneratedValue
     @Column(name="moistureId")
     private Long moistureId;
 
-    public Moisture() {
-    }
-
-    public Moisture(double moisturePercentage, LocalDateTime moistureDateTime) {
-        this.moisturePercentage = moisturePercentage;
-        this.moistureDateTime = moistureDateTime;
-    }
 }
