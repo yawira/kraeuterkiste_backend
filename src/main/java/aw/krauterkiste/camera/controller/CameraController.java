@@ -23,7 +23,7 @@ public class CameraController {
     @GetMapping("/photo")
     @ResponseBody
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
-    public PictureDto readImage() {
+    public PictureDto takePhoto() {
         PictureDto pictureDto = new PictureDto();
 
         String encodedPhoto = raspiRestTemplate.getForObject("/camera/photo", String.class);

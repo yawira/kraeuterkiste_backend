@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 @Entity
 public class Exposure {
 
-    private LocalDateTime start;
-    private LocalDateTime stop;
+    private LocalDateTime dateTime;
+    private boolean on;
 
     @Id
     @GeneratedValue

@@ -2,13 +2,11 @@ package aw.krauterkiste.exposure.service;
 
 import aw.krauterkiste.exposure.model.Exposure;
 import aw.krauterkiste.exposure.model.ExposureDataDto;
-import aw.krauterkiste.exposure.model.ExposureStatusDto;
+import aw.krauterkiste.exposure.model.ExposureDto;
 import aw.krauterkiste.exposure.repository.ExposureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.time.LocalDateTime;
 
 @Service
 public class ExposureService {
@@ -23,23 +21,17 @@ public class ExposureService {
         this.exposureRepository = exposureRepository;
     }
 
-    public ExposureStatusDto toggle() {
-        ExposureStatusDto statusDto = raspiRestTemplate
-                .getForObject("/led/toggle", ExposureStatusDto.class);
+    public ExposureDto toggle() {
+        ExposureDto exposureDto = raspiRestTemplate
+                .getForObject("/led/toggle", ExposureDto.class);
 
-        if(statusDto.isOn()) {
-            LocalDateTime start = LocalDateTime.now();
-            Exposure exposure = new Exposure();
-            exposure.setStart(start);
-            exposureRepository.save(exposure);
-        } else {
-            LocalDateTime end = LocalDateTime.now();
-            Exposure exposure = exposureRepository.findTopByOrderByStartDesc();
-            exposure.setStop(end);
-            exposureRepository.save(exposure);
-        }
+        Exposure exposure = new Exposure();
+        exposure.setDateTime(exposureDto.getDateTime());
+        exposure.setOn(exposureDto.isOn());
 
-        return statusDto;
+        exposureRepository.save(exposure);
+
+        return exposureDto;
     }
 
     public ExposureDataDto getData() {
