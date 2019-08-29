@@ -2,6 +2,7 @@ package aw.krauterkiste.moisture.controller;
 
 import aw.krauterkiste.moisture.model.Moisture;
 import aw.krauterkiste.moisture.model.MoistureDto;
+import aw.krauterkiste.moisture.model.MoistureEntityDto;
 import aw.krauterkiste.moisture.repository.MoistureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,17 @@ public class MoistureController {
         this.raspiRestTemplate = raspiRestTemplate;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @GetMapping("/dataview/moisture")
+    @ResponseBody
+    public MoistureEntityDto showMoistureData() {
+
+        MoistureEntityDto moistureDataDto = new MoistureEntityDto();
+
+        moistureDataDto.setMoistureList(moistureRepository.findAllByOrderByMoistureDateTimeAsc());
+
+        return moistureDataDto;
+    }
 
     @PostMapping("/data")
     public void measureMoisture(@RequestBody MoistureDto moistureDto){

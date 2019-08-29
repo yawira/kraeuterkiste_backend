@@ -1,4 +1,4 @@
-package aw.krauterkiste.comm;
+package aw.krauterkiste.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
