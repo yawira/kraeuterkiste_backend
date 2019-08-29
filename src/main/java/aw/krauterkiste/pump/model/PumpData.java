@@ -14,6 +14,6 @@ import java.util.List;
 public class PumpData {
 
     private LocalDateTime start;
-    private LocalDateTime stop;
+    private long duration;
 
 }

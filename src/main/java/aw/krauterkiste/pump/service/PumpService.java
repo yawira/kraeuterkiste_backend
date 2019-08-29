@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class PumpService {
             }
 
             if(start != null && stop != null && stop.isAfter(start)) {
-                data.add(new PumpData(start, stop));
+                data.add(new PumpData(start, ChronoUnit.SECONDS.between(start, stop)));
             }
         }
 
