@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 @Entity
 public class Pump {
 
-    private LocalDateTime start;
-    private LocalDateTime stop;
-
     @Id
     @GeneratedValue
     private Long pumpId;
+
+    private LocalDateTime dateTime;
+    private boolean active;
 
 }

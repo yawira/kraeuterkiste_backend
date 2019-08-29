@@ -1,14 +1,16 @@
 package aw.krauterkiste.pump.service;
 
 import aw.krauterkiste.pump.model.Pump;
-import aw.krauterkiste.pump.model.PumpDataDto;
-import aw.krauterkiste.pump.model.PumpStatusDto;
+import aw.krauterkiste.pump.model.PumpData;
+import aw.krauterkiste.pump.model.PumpDto;
 import aw.krauterkiste.pump.repository.PumpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PumpService {
@@ -23,30 +25,42 @@ public class PumpService {
         this.pumpRepository = pumpRepository;
     }
 
-    public PumpStatusDto toggle() {
-        PumpStatusDto statusDto = raspiRestTemplate
-                .getForObject("/pump/toggle", PumpStatusDto.class);
+    public PumpDto toggle() {
+        PumpDto pumpDto = raspiRestTemplate
+                .getForObject("/pump/toggle", PumpDto.class);
 
-        if(statusDto.isOn()) {
-            LocalDateTime start = LocalDateTime.now();
-            Pump pump = new Pump();
-            pump.setStart(start);
-            pumpRepository.save(pump);
-        } else {
-            LocalDateTime end = LocalDateTime.now();
-            Pump pump = pumpRepository.findTopByOrderByStartDesc();
-            pump.setStop(end);
-            pumpRepository.save(pump);
-        }
+        Pump pump = new Pump();
+        pump.setDateTime(pumpDto.getDateTime());
+        pump.setActive(pumpDto.isActive());
 
-        return statusDto;
+        pumpRepository.save(pump);
+
+        return pumpDto;
     }
 
-    public PumpDataDto getData(){
-        PumpDataDto pumpDataDto = new PumpDataDto();
+    public List<PumpData> getData(){
+        List<PumpData> data = new ArrayList<>();
 
-        pumpDataDto.setPumpList(pumpRepository.findAll());
+        List<Pump> rawData = pumpRepository.findAllByOrderByDateTimeDesc();
 
-        return pumpDataDto;
+        LocalDateTime start = null;
+        LocalDateTime stop = null;
+
+        for(Pump rawDataItem : rawData) {
+            LocalDateTime dateTime = rawDataItem.getDateTime();
+
+            if(rawDataItem.isActive()) {
+                start = dateTime;
+            } else {
+                stop = dateTime;
+            }
+
+            if(start != null && stop != null && stop.isAfter(start)) {
+                PumpData exposureData = new PumpData(start, stop);
+                data.add(exposureData);
+            }
+        }
+
+        return data;
     }
 }
