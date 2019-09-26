@@ -3,9 +3,9 @@
 This is the Backend to our "Kraeuterkiste" project. <br>
 It is the connection between Frontend and Raspberry Pi, enabling data exchange and handling HTTP-requests.
 
-##Getting Started
+## Getting Started
 
-###Prerequisites
+### Prerequisites
 
 - IDE
 - MariaDB Relational Database
@@ -27,7 +27,7 @@ raspi.port=4444 <br>
 raspi.url=http://${raspi.ip}:${raspi.port} <br>
 
 
-##Technologies
+## Technologies
 
 - Java
 - Maven - Dependency Management
@@ -36,7 +36,7 @@ raspi.url=http://${raspi.ip}:${raspi.port} <br>
 - Lombok
 
 
-##Authors
+## Authors
 
 - Ralf Jackels
 - Lorenz Josten
